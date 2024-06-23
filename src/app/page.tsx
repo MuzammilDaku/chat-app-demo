@@ -5,6 +5,10 @@ import LandingFeature1 from "@/components/Landing Pages/Feature1";
 import LandingFeature2 from "@/components/Landing Pages/Feature2";
 export default function Home () {
   return (
+    <>
+    <head>
+      <title>Home |Chat App</title>
+    </head>
     <div className="container">
     <Navbar /> 
     <LandingHome />
@@ -12,5 +16,6 @@ export default function Home () {
     <LandingFeature1 />
     <LandingFeature2 />
     </div>
+    </>
   )
 }

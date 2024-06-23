@@ -1,12 +1,7 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+"use client";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-export const metadata: Metadata = {
-  title: "Chat App",
-  description: "MAKB APP FOR CHATTING",
-};
+import StoreProvider from "./appProvider";
 
 export default function RootLayout({
   children,
@@ -15,9 +10,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      {/* <head><title>Chat App</title></head> */}
       <body className="poppins-regular">
-        {children}
-        </body>
+        <StoreProvider>
+          {children}
+        </StoreProvider>
+      </body>
     </html>
   );
 }
