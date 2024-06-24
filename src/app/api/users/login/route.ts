@@ -30,7 +30,8 @@ export async function POST(req:NextRequest){
             return NextResponse.json({success,error:"Invalid Password!"})
         }
 
-        const token = await jwt.sign({_id:findUser._id},process.env.JWT_SECRET_KEY)
+        const JWT_SECRET_KEY = "HAHAHHAHHAHAHHAHAHSECRETKEY"
+        const token = await jwt.sign({_id:findUser._id},process.env.JWT_SECRET_KEY||JWT_SECRET_KEY)
 
         success = true; 
 
