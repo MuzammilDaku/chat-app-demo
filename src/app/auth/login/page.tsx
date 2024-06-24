@@ -1,35 +1,39 @@
 "use client";
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "@/redux_toolkit/hooks";
-import { createUser } from "@/redux_toolkit/auth/authSlice";
 import ButtonLoader from "@/components/LoadingUI/btnLoader";
-import Head from "next/head";
-import { Metadata } from "next";
+import { ChangeEvent, useState } from "react";
+import { loginUser } from "@/redux_toolkit/auth/authSlice";
+import { useRouter } from "next/navigation";
 
- const metadata: Metadata = {
-    title: 'Chat App',
-  }
 export default function Login() {
-    const dispatch = useAppDispatch()
-    const isLoading = useAppSelector((state) => state.auth.isLoading)
-    useEffect(() => {
-        const getData = async () => {
-            dispatch(createUser())
+    const router = useRouter()
+    const dispatch = useAppDispatch();
+    const isLoading = useAppSelector((state) => state.auth.isLoading);
+  
+    const [user,setUser] = useState({
+        emailOrUsername:"",
+        password:""
+    })
+
+    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+        setUser({...user,[e.target.name]:e.target.value});
+    }
+
+    const handleClick = async()=> {
+        const login = await dispatch(loginUser(user));
+        if(login.payload.success) {
+            router.push('/')
         }
-        getData()
-    }, [])
+    }
     return (
         <>
-        <head>
-            <title>Chat App|Login</title>
-        </head>
         <div className="px-2 py-2">
             <Image src={'/makb.png'} alt="Logo" width={90} height={70}></Image>
             <div className="d-flex justify-content-center align-items-center">
-                <div className="col-4 px-2">
-                    <div className="form  px-4 py-3" style={{
+            <div className="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 px-2">
+            <div className="form  px-4 py-3" style={{
                         border: '1px solid #dedede',
                         borderRadius: 6
                     }}>
@@ -37,8 +41,8 @@ export default function Login() {
                         <h3>Sign in to</h3>
                         <p style={{ fontSize: 14 }}>MAKB CHAT APPLICATION</p>
                         <div className="input_fields py-2">
-                            <label style={{ fontSize: 13 }} htmlFor="username">User name</label>
-                            <input type="text" className="form-control" placeholder="Enter your user name" style={{
+                            <label style={{ fontSize: 13 }} htmlFor="username">Username or Email</label>
+                            <input type="text" onChange={(e)=>handleChange(e)} name="emailOrUsername" className="form-control" placeholder="Enter your username or email" style={{
                                 border: '1px solid #dedede',
                                 fontSize: 13,
                                 height: 45,
@@ -47,7 +51,7 @@ export default function Login() {
                         </div>
                         <div className="input_fields py-2">
                             <label style={{ fontSize: 13 }} htmlFor="username">Password</label>
-                            <input type="text" className="form-control" placeholder="Enter your password" style={{
+                            <input name="password" onChange={(e)=>handleChange(e)} type="text" className="form-control" placeholder="Enter your password" style={{
                                 border: '1px solid #dedede',
                                 fontSize: 13,
                                 height: 45
@@ -65,9 +69,9 @@ export default function Login() {
                             </div>
                         </div>
                         <div className="py-2 d-grid">
-                            <button className="btn btn-dark text-center d-flex justify-content-center align-items-center" style={{
+                            <button className="btn btn-dark text-center d-flex justify-content-center align-items-center" onClick={()=>handleClick()} style={{
                                 height: 40
-                            }}>{isLoading ===false ? <ButtonLoader />:"Login"}</button>
+                            }}>{isLoading ? <ButtonLoader />:"Login"}</button>
                         </div>
                         <div className="py-3 text-center">
                             <span>Don't have an Account?</span><Link className="text-decoration-none px-2" href={'/auth/signup'}>Register</Link>
@@ -75,7 +79,7 @@ export default function Login() {
 
                     </div>
                 </div>
-                <div className="col-7">
+                <div className="col-7 hide">
                     <Image src={'/login.png'} height={450} width={827} style={{
                         height: 'auto',
                         width: '90%'

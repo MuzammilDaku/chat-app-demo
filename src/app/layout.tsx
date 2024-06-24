@@ -2,16 +2,18 @@
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StoreProvider from "./appProvider";
-
+import 'react-toastify/ReactToastify.css'
+import { ToastContainer } from "react-toastify";
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+ 
   return (
     <html lang="en" className="dark">
-      {/* <head><title>Chat App</title></head> */}
       <body className="poppins-regular">
+        <ToastContainer />
         <StoreProvider>
           {children}
         </StoreProvider>

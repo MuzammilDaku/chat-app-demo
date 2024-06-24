@@ -6,9 +6,9 @@ import LandingFeature2 from "@/components/Landing Pages/Feature2";
 export default function Home () {
   return (
     <>
-    <head>
+    {/* <head>
       <title>Home |Chat App</title>
-    </head>
+    </head> */}
     <div className="container">
     <Navbar /> 
     <LandingHome />
