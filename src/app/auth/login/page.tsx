@@ -22,10 +22,20 @@ export default function Login() {
     }
 
     const handleClick = async()=> {
-        const login = await dispatch(loginUser(user));
-        if(login.payload.success) {
-            router.push('/')
+        try {
+            const login = await dispatch(loginUser(user));
+            if(login.payload){
+             if(login.payload.success){
+                 router.push("/")
+             }
+            }
+            else {
+                console.log(login.payload)
+            }
+        } catch (error) {
+            console.log("error in catch",error)
         }
+   
     }
     return (
         <>
