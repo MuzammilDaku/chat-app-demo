@@ -7,6 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import * as jwt from 'jsonwebtoken'
 
 export async function POST(req:NextRequest){
+    await mongoConnect()
     let success = false; 
     try {
         const json = await req.json();
