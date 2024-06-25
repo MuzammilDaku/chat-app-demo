@@ -11,4 +11,21 @@
       display: none;
     }
   }
+
+  .font-chat {
+    font-family:'Times New Roman', Times, serif
+  }
+
+
+  .image-p{
+    position: relative;
+    bottom: 35px;
+  }
+
+  .myMsgColor {
+    background-color: #7678ed;
+  }
   
+  .userMsgColor{ 
+    background-color: #eeeef8;
+  }
