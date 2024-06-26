@@ -68,7 +68,7 @@ export default function ChatSection() {
                 </div>
             </div>
             <div className="message-section py-2">
-                <Scrollbars autoHide style={{ height: "75vh" }} >
+                <Scrollbars autoHide style={{ height: "79vh" }} >
                     {
                         messages?.map((user, index) => {
                             return (
