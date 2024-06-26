@@ -3,8 +3,8 @@ export default function LandingFeatures() {
     return (
         <div className="py-5">
             <h2 className="text-center">Features for a better experience</h2>
-            <div className="d-flex justify-content-center align-items-center py-4">
-                <div className="col-4">
+            <div className="row justify-content-center align-items-center py-4">
+                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                     <div className="d-flex ">
                       <div>
                       <Image src={'/icon1.png'} alt="Vide Call" height={60} width={60}></Image>
@@ -17,7 +17,7 @@ export default function LandingFeatures() {
                         </div>
                     </div>
                 </div>
-                <div className="col-4">
+                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                     <div className="d-flex ">
                       <div>
                       <Image src={'/icon2.png'} alt="Video Call" height={60} width={60}></Image>
@@ -30,7 +30,7 @@ export default function LandingFeatures() {
                         </div>
                     </div>
                 </div>       
-                <div className="col-4">
+                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                     <div className="d-flex ">
                       <div>
                       <Image src={'/icon 3.png'} alt="Video Call" height={60} width={60}></Image>

@@ -12,7 +12,7 @@ export default function RootLayout({
  
   return (
     <html lang="en" className="dark">
-      <body className="poppins-regular">
+      <body className="poppins-regular bg">
         <ToastContainer />
         <StoreProvider>
           {children}

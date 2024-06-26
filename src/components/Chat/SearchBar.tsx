@@ -42,7 +42,7 @@ export default function SearchBar() {
                 {users.map((user, index) => (
                     <div key={index} onClick={() => changeColor(index,user)} className="user-item">
                         <div className="d-flex" style={{
-                            backgroundColor: index === selectedIndex ? "#eeeef8" : "transparent", // Apply background color based on selection
+                            backgroundColor: index === selectedIndex ? "#eeeef8" : "transparent", // Apply background color based on selection`
                             borderRadius: 10,
                             marginBottom: "10px" // Gap between users
                         }}>

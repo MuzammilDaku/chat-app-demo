@@ -1,31 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@media screen and (max-width:992px) {
+  .hide {
+    display: none;
   }
 
-  @media screen and (max-width:992px) {
-    .hide{
-      display: none;
-    }
+  .class-nav {
+    display: none;
   }
+}
 
-  .font-chat {
-    font-family:'Times New Roman', Times, serif
-  }
+.font-chat {
+  font-family: 'Times New Roman', Times, serif
+}
+
+.bg {
+  background-image: linear-gradient(to bottom right, #FDFCFB, #E2D1C3);
+
+}
 
 
-  .image-p{
-    position: relative;
-    bottom: 35px;
-  }
+.image-p {
+  position: relative;
+  bottom: 35px;
+}
 
-  .myMsgColor {
-    background-color: #7678ed;
-  }
-  
-  .userMsgColor{ 
-    background-color: #eeeef8;
-  }
+.myMsgColor {
+  background-color: #7678ed;
+}
+
+.userMsgColor {
+  background-color: #eeeef8;
+}
+
+.class-nav {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  min-width: 323px;
+  background-image: linear-gradient(to right, #8360c3, #2ebf91);
+}
+
