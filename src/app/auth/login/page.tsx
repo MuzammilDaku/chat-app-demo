@@ -24,13 +24,11 @@ export default function Login() {
     const handleClick = async()=> {
         try {
             const login = await dispatch(loginUser(user));
-            if(login.payload){
-             if(login.payload.success){
+             if(login?.payload?.success){
                  router.push("/")
              }
-            }
             else {
-                console.log(login.payload)
+                console.log(login?.payload)
             }
         } catch (error) {
             console.log("error in catch",error)
@@ -39,10 +37,12 @@ export default function Login() {
     }
     return (
         <>
-        <div className="px-2 py-2">
+        <div className="px-2 py-2" style={{
+            height:"100vh"
+        }}>
             <Image src={'/makb.png'} alt="Logo" width={90} height={70}></Image>
             <div className="d-flex justify-content-center align-items-center">
-            <div className="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 px-2">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 px-2">
             <div className="form  px-4 py-3" style={{
                         border: '1px solid #dedede',
                         borderRadius: 6

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
+
 // create user (signup)
 export const createUser = createAsyncThunk("createUser", async (data: any, thunkApi) => {
     try {
@@ -19,7 +19,6 @@ export const createUser = createAsyncThunk("createUser", async (data: any, thunk
 
 
 //Login User 
-
 export const loginUser = createAsyncThunk("login",async (data:any,thunkApi)=>{
     try {
         const res = await axios({

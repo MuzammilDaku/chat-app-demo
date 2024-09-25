@@ -1,5 +1,19 @@
 import mongoose, { Schema, model, models } from 'mongoose';
 
+
+interface User {
+  name:string
+  email:string
+  username:string
+  password:string
+  friendRequests?:any[]
+  friends?:any[]
+  messages?:any[]
+  date?:Date
+  status?:string
+  profile:string
+}
+
 const userSchema = new Schema({
   name: {
     type: String,
@@ -36,7 +50,10 @@ const userSchema = new Schema({
     default:new Date()
   },
   status:{
-    type:"String",
+    type:String,
+  },
+  profile:{
+    type:String,
     required:true
   }
 });

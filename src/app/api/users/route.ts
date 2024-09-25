@@ -6,9 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest, res: NextResponse) {
    await mongoConnect();
-
    let success = false;
-
    try {
       const users = await User.find();
       success = true;
@@ -22,8 +20,7 @@ export async function POST(req: NextRequest,res:NextResponse) {
    await mongoConnect();
    let success = false;
    try {
-
-      const { password, username, email,name } = await req.json();
+      const { password, username, email,name ,profile} = await req.json();
 
       const usernameCheck = await User.findOne({ username });
       if (usernameCheck) {
@@ -37,7 +34,7 @@ export async function POST(req: NextRequest,res:NextResponse) {
 
       const hashPass = await bcrypt.hash(password, 10);
 
-      const user = await User.create({ username, email, password: hashPass ,name});
+      const user = await User.create({ username, email, password: hashPass ,name,profile});
 
       success = true;
 
@@ -49,6 +46,4 @@ export async function POST(req: NextRequest,res:NextResponse) {
    }
 }
 
-export async function PATCH(req:NextRequest) {
- console.log(req)
-}
+
